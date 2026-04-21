@@ -228,11 +228,11 @@ export function HomePage() {
               </div>
 
               <h1 className={styles.headline}>
-                Your trusted partner in{' '}
-                <span className={styles.accent}>
+                <span className={styles.headlineTop}>Your trusted partner in</span>
+                <span className={`${styles.headlineMid} ${styles.accent}`}>
                   <TypeWord />
-                </span>{' '}
-                solutions
+                </span>
+                <span className={styles.headlineBot}>solutions</span>
               </h1>
 
               <p className={styles.heroLead}>
