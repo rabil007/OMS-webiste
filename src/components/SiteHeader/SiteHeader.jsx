@@ -10,6 +10,8 @@ const nav = [
   { to: '/contact-us', label: 'Contact Us' },
 ]
 
+const CAREERS_URL = 'http://app.overseas-ms.com/careers'
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -56,6 +58,17 @@ export function SiteHeader() {
                   {item.label}
                 </NavLink>
               ))}
+              <a
+                href={CAREERS_URL}
+                className={styles.careersLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Careers
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
             </nav>
 
             <div className={styles.actions}>
@@ -101,6 +114,18 @@ export function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
+          <a
+            href={CAREERS_URL}
+            className={styles.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
+            Careers
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: 6, verticalAlign: 'middle' }}>
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
           <Link
             className={`btn btnPrimary ${styles.drawerCta}`}
             to="/contact-us"

@@ -416,6 +416,116 @@
    SERVICES SECTION
 ═══════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════
+   TRUSTED BY — CLIENT LOGOS MARQUEE
+═══════════════════════════════════════════════════════════ */
+
+.clientsSection {
+  padding: 56px 0;
+  border-top: 1px solid rgba(43,125,233,0.08);
+  border-bottom: 1px solid rgba(43,125,233,0.08);
+  overflow: hidden;
+}
+
+.clientsHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.clientsDivider {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(43,125,233,0.25));
+}
+
+.clientsDivider:last-child {
+  background: linear-gradient(to left, transparent, rgba(43,125,233,0.25));
+}
+
+.clientsLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
+  white-space: nowrap;
+}
+
+/* ── Marquee ──────────────────────────────────────────────── */
+
+.marqueeWrapper {
+  position: relative;
+  width: 100%;
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marqueeWrapper:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.marqueeSet {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.clientLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 44px;
+  border-right: 1px solid rgba(43,125,233,0.08);
+}
+
+.clientLogo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.8) opacity(0.45);
+  transition: filter 0.35s ease, transform 0.25s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+.marqueeWrapper:hover .clientLogo img {
+  filter: grayscale(0) brightness(1) opacity(0.90);
+  transform: scale(1.04);
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SERVICES SECTION
+═══════════════════════════════════════════════════════════ */
+
 .servicesSection {
   padding: 112px 0;
 }

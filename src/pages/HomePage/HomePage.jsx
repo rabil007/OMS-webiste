@@ -234,6 +234,47 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* ─── TRUSTED BY ─────────────────────────────────────── */}
+      <section className={styles.clientsSection}>
+        <div className="container">
+          <div className={styles.clientsHead}>
+            <span className={styles.clientsDivider} />
+            <span className={styles.clientsLabel}>Trusted by industry leaders</span>
+            <span className={styles.clientsDivider} />
+          </div>
+        </div>
+        <div className={styles.marqueeWrapper} aria-hidden="true">
+          <div className={styles.marqueeTrack}>
+            {/* Duplicated for seamless infinite loop */}
+            {[...Array(2)].map((_, di) => (
+              <div key={di} className={styles.marqueeSet}>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/ADNOC-Offshore.webp" alt="ADNOC Logistics & Services" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/DSV.webp" alt="DSV" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/DSV-1-2.webp" alt="Berlitz Offshore & Marine Group" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/jan-de-nul.webp" alt="Jan De Nul Group" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/jan-de-nul-1.webp" alt="Safeen" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/Target.webp" alt="Target" />
+                </div>
+                <div className={styles.clientLogo}>
+                  <img src="/clients/Zaqer.webp" alt="Zakher Marine International" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── SERVICES ───────────────────────────────────────── */}
       <section className={styles.servicesSection}>
         <div className="container">

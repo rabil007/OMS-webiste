@@ -13,6 +13,38 @@ const categories = [
 const faqs = [
   {
     category: 'operations',
+    q: 'What services does Overseas Marine Services offer?',
+    a: 'We offer a comprehensive range of maritime services including ship management, crew management, vessel management, flag state documentation, training consultancy, travel and accommodation services, ship repair support, and IoT-based transport management — all designed to meet the dynamic needs of the global marine and oil & gas industries.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/><rect x="16" y="15" width="6" height="6" rx="1"/>
+        <path d="M8 6h8M8 18h8M5 9v6M19 9v6"/>
+      </svg>
+    ),
+  },
+  {
+    category: 'operations',
+    q: 'What is included in Ship Management Services?',
+    a: 'Our ship management services include operational management, maintenance planning, regulatory compliance (ISM, ISPS, STCW), crew management, and efficient chartering solutions. We ensure the highest levels of operational efficiency for all types of vessels while maximising uptime and preserving long-term asset value.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 17h18M3 17l2-8h14l2 8M3 17v2a1 1 0 001 1h16a1 1 0 001-1v-2M8 9V5a1 1 0 011-1h6a1 1 0 011 1v4"/>
+      </svg>
+    ),
+  },
+  {
+    category: 'operations',
+    q: 'How long has Overseas Marine Services been in the industry?',
+    a: 'OMS was established in 2020 and our team brings over 40 years of combined experience in the maritime and oil & gas sectors. We leverage this deep industry knowledge to deliver reliable, innovative, and compliant maritime solutions for clients globally.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+    ),
+  },
+
+  {
+    category: 'operations',
     q: 'Which regions do you operate in?',
     a: 'We support maritime operations globally, with a strong operational base in Abu Dhabi, UAE. Our network spans key maritime hubs across the Middle East, Asia, and Europe — enabling seamless crew deployment and vessel management worldwide.',
     icon: (
