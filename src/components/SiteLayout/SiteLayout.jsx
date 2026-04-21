@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { SiteHeader } from '../SiteHeader/SiteHeader.jsx'
 import { SiteFooter } from '../SiteFooter/SiteFooter.jsx'
+import { OmsChat } from '../OmsChat/OmsChat.jsx'
 
 export function SiteLayout() {
   return (
@@ -10,6 +11,7 @@ export function SiteLayout() {
         <Outlet />
       </main>
       <SiteFooter />
+      <OmsChat />
     </div>
   )
 }

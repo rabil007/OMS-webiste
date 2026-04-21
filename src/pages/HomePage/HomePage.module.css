@@ -860,6 +860,332 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
+   OPERATIONS DASHBOARD
+═══════════════════════════════════════════════════════════ */
+
+.dashSection {
+  padding: 112px 0 80px;
+  background: linear-gradient(180deg, transparent 0%, rgba(4,10,26,0.5) 100%);
+}
+
+.dashGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+@media (min-width: 900px) {
+  .dashGrid {
+    grid-template-columns: 1fr 1.6fr 0.9fr;
+  }
+}
+
+/* ── KPI cards ─────────────────────────────────────────── */
+
+.dashKpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .dashKpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kpiCard {
+  background: rgba(8,20,44,0.80);
+  border: 1px solid rgba(43,125,233,0.14);
+  border-radius: 16px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.kpiCard:hover {
+  border-color: rgba(43,125,233,0.30);
+  transform: translateY(-2px);
+}
+
+.kpiIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.12);
+  border: 1px solid rgba(43,125,233,0.22);
+  border-radius: 10px;
+  color: #4A93F0;
+}
+
+.kpiIcon svg { width: 16px; height: 16px; }
+
+.kpiNum {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+  background: linear-gradient(100deg, #fff 0%, #4A93F0 120%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpiLabel {
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── Fleet panel ────────────────────────────────────────── */
+
+.dashPanel {
+  background: rgba(8,20,44,0.80);
+  border: 1px solid rgba(43,125,233,0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(43,125,233,0.10);
+  background: rgba(43,125,233,0.06);
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+.panelLive {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #22c55e;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.vesselRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(43,125,233,0.06);
+  transition: background 0.18s ease;
+}
+
+.vesselRow:last-child { border-bottom: none; }
+
+.vesselRow:hover { background: rgba(43,125,233,0.04); }
+
+.vesselInfo { flex: 1; min-width: 0; }
+
+.vesselName {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  letter-spacing: 0.04em;
+}
+
+.vesselMeta {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 2px;
+}
+
+.vesselRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.statusOperational {
+  background: rgba(34,197,94,0.12);
+  color: #22c55e;
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.statusInTransit {
+  background: rgba(245,158,11,0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+.statusAtPort {
+  background: rgba(74,147,240,0.12);
+  color: #4A93F0;
+  border: 1px solid rgba(74,147,240,0.25);
+}
+
+.progressBar {
+  width: 100px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: var(--w, 0%);
+  border-radius: 3px;
+  background: linear-gradient(90deg, #2B7DE9, #22c55e);
+  animation: barGrow 1.2s ease both;
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+  to   { width: var(--w, 0%); }
+}
+
+/* ── Side cards ─────────────────────────────────────────── */
+
+.dashSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sideCard {
+  background: rgba(8,20,44,0.80);
+  border: 1px solid rgba(43,125,233,0.14);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  flex: 1;
+}
+
+.sideCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px;
+}
+
+/* Crew stats */
+.crewStats { display: grid; gap: 8px; }
+
+.crewStat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.crewDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.crewLabel { flex: 1; color: rgba(255,255,255,0.45); }
+
+.crewVal { font-weight: 700; font-size: 13px; }
+
+/* Compliance ring */
+.scoreRing {
+  position: relative;
+  width: 100px;
+  margin: 0 auto 12px;
+}
+
+.ringChart { width: 100%; height: auto; display: block; }
+
+.ringInner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringScore {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+}
+
+.ringLabel {
+  font-size: 9px;
+  color: #22c55e;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.complianceList { display: grid; gap: 6px; }
+
+.complianceItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Disclaimer */
+.dashDisclaimer {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.20);
+  margin-top: 24px;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════
    CTA BAND
 ═══════════════════════════════════════════════════════════ */
 

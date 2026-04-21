@@ -1,0 +1,401 @@
+/* ═══════════════════════════════════════════════════════════
+   OMS AI CHAT ASSISTANT
+═══════════════════════════════════════════════════════════ */
+
+/* ── Trigger Button ─────────────────────────────────────── */
+
+.trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1100;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2B7DE9 0%, #1a5bbf 100%);
+  box-shadow: 0 8px 32px rgba(43,125,233,0.55), 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+  color: #fff;
+}
+
+.trigger svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(43,125,233,0.70), 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.triggerOpen {
+  transform: scale(1.05) rotate(0deg);
+  background: linear-gradient(135deg, #1a5bbf 0%, #0f3d8f 100%);
+}
+
+/* Pulse ring */
+.triggerPulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(43,125,233,0.45);
+  animation: pulsRing 2.2s ease-out infinite;
+}
+
+@keyframes pulsRing {
+  0%   { transform: scale(0.9); opacity: 1; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+/* ── Window ─────────────────────────────────────────────── */
+
+.window {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  z-index: 1099;
+  width: 380px;
+  max-height: 580px;
+  border-radius: 20px;
+  background: rgba(6, 16, 34, 0.97);
+  border: 1px solid rgba(43,125,233,0.22);
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(43,125,233,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  transform: scale(0.92) translateY(20px);
+  transform-origin: bottom right;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), opacity 0.22s ease;
+}
+
+.windowOpen {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, rgba(43,125,233,0.22) 0%, rgba(26,91,191,0.10) 100%);
+  border-bottom: 1px solid rgba(43,125,233,0.14);
+  flex-shrink: 0;
+}
+
+.headerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2B7DE9, #1a5bbf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(43,125,233,0.40);
+}
+
+.headerAvatar svg { width: 18px; height: 18px; }
+
+.headerInfo { flex: 1; min-width: 0; }
+
+.headerName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.headerStatus {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+  animation: statusPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.20); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0.08); }
+}
+
+.headerClose {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.45);
+  transition: background 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.headerClose svg { width: 14px; height: 14px; }
+
+.headerClose:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* ── Messages ───────────────────────────────────────────── */
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+.messages::-webkit-scrollbar { width: 4px; }
+.messages::-webkit-scrollbar-track { background: transparent; }
+.messages::-webkit-scrollbar-thumb { background: rgba(43,125,233,0.25); border-radius: 4px; }
+
+.msg {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  animation: msgIn 0.25s ease both;
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msgUser { flex-direction: row-reverse; }
+
+.botAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2B7DE9, #1a5bbf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.bubble {
+  max-width: 84%;
+  padding: 11px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.msgBot .bubble {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(43,125,233,0.14);
+  border-bottom-left-radius: 4px;
+  color: rgba(255,255,255,0.85);
+}
+
+.msgUser .bubble {
+  background: linear-gradient(135deg, #2B7DE9 0%, #1a5bbf 100%);
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(43,125,233,0.35);
+}
+
+.msgLine {
+  margin: 0;
+}
+
+.msgLine + .msgLine {
+  margin-top: 4px;
+}
+
+.chatLink {
+  color: #60b4ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(96,180,255,0.35);
+  transition: color 0.15s ease;
+}
+
+.chatLink:hover { color: #90d4ff; }
+
+/* Typing dots */
+.typingBubble {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 18px;
+  min-width: 64px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(74,147,240,0.6);
+  animation: bounce 1.3s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.18s; }
+.dot:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-6px); background: rgba(74,147,240,1); }
+}
+
+/* ── Suggestion chips ───────────────────────────────────── */
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 4px 0 4px 34px;
+  animation: msgIn 0.3s 0.15s ease both;
+}
+
+.chip {
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(43,125,233,0.28);
+  background: rgba(43,125,233,0.08);
+  color: #4A93F0;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  text-align: left;
+}
+
+.chip:hover {
+  background: rgba(43,125,233,0.18);
+  border-color: rgba(43,125,233,0.50);
+  transform: translateY(-1px);
+}
+
+/* ── Input row ──────────────────────────────────────────── */
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(43,125,233,0.10);
+  flex-shrink: 0;
+  background: rgba(4,10,22,0.6);
+}
+
+.input {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(43,125,233,0.18);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  outline: none;
+  transition: border-color 0.18s ease, background 0.18s ease;
+  font-family: inherit;
+}
+
+.input::placeholder { color: rgba(255,255,255,0.28); }
+
+.input:focus {
+  border-color: rgba(43,125,233,0.50);
+  background: rgba(255,255,255,0.07);
+}
+
+.sendBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: none;
+  background: linear-gradient(135deg, #2B7DE9, #1a5bbf);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(43,125,233,0.40);
+}
+
+.sendBtn svg { width: 15px; height: 15px; }
+
+.sendBtn:hover:not(:disabled) {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(43,125,233,0.55);
+}
+
+.sendBtn:disabled {
+  opacity: 0.38;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.22);
+  padding: 8px 16px 12px;
+  flex-shrink: 0;
+}
+
+.footerLink {
+  color: rgba(74,147,240,0.55);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footerLink:hover { color: #4A93F0; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 479px) {
+  .window {
+    right: 12px;
+    bottom: 88px;
+    width: calc(100vw - 24px);
+    max-height: 70svh;
+    border-radius: 16px;
+  }
+  .trigger {
+    right: 16px;
+    bottom: 20px;
+  }
+}
