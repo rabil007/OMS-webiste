@@ -53,7 +53,9 @@ export function AboutPage() {
       {/* Page hero / banner */}
       <div className={styles.pageBanner}>
         <img
-          src="/images/shutterstock_1717081216.jpg"
+          src="/images/shutterstock_1717081216-2000.webp"
+          srcSet="/images/shutterstock_1717081216-1200.webp 1200w, /images/shutterstock_1717081216-2000.webp 2000w"
+          sizes="100vw"
           alt="Large container ship at sea"
           className={styles.bannerBg}
           aria-hidden="true"

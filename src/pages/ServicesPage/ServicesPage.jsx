@@ -43,7 +43,9 @@ export function ServicesPage() {
       {/* Page hero */}
       <div className={styles.pageHero}>
         <img
-          src="/images/shutterstock_2528263849.jpg"
+          src="/images/shutterstock_2528263849-2000.webp"
+          srcSet="/images/shutterstock_2528263849-1200.webp 1200w, /images/shutterstock_2528263849-2000.webp 2000w"
+          sizes="100vw"
           alt="Aerial view of marine vessel operations at sea"
           className={styles.heroBg}
           aria-hidden="true"

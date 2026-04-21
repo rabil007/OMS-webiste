@@ -108,7 +108,9 @@ export function HomePage() {
       <section className={styles.hero} aria-label="Hero">
         {/* Full-bleed background photo */}
         <img
-          src="/images/shutterstock_1843014460.jpg"
+          src="/images/shutterstock_1843014460-2000.webp"
+          srcSet="/images/shutterstock_1843014460-1200.webp 1200w, /images/shutterstock_1843014460-2000.webp 2000w"
+          sizes="100vw"
           alt=""
           className={styles.heroBg}
           fetchPriority="high"
@@ -169,7 +171,9 @@ export function HomePage() {
                   IoT‑enabled operations
                 </div>
                 <img
-                  src="/images/shutterstock_1405449578.jpg"
+                  src="/images/shutterstock_1405449578-2000.webp"
+                  srcSet="/images/shutterstock_1405449578-1200.webp 1200w, /images/shutterstock_1405449578-2000.webp 2000w"
+                  sizes="(max-width: 859px) 92vw, 520px"
                   alt="Container ship at sea — marine vessel operations"
                   className={styles.mediaImg}
                   loading="eager"
@@ -188,7 +192,9 @@ export function HomePage() {
               {/* Secondary mini image */}
               <div className={styles.mediaSecondary}>
                 <img
-                  src="/images/shutterstock_2528263849.jpg"
+                  src="/images/shutterstock_2528263849-1200.webp"
+                  srcSet="/images/shutterstock_2528263849-1200.webp 1200w, /images/shutterstock_2528263849-2000.webp 2000w"
+                  sizes="(max-width: 859px) 92vw, 520px"
                   alt="Offshore operations"
                   className={styles.mediaSecondaryImg}
                   loading="lazy"
@@ -262,7 +268,9 @@ export function HomePage() {
       <div className={styles.featureSplit}>
         <div className={styles.featureImgSide}>
           <img
-            src="/images/shutterstock_2269656513.jpg"
+            src="/images/shutterstock_2269656513-2000.webp"
+            srcSet="/images/shutterstock_2269656513-1200.webp 1200w, /images/shutterstock_2269656513-2000.webp 2000w"
+            sizes="100vw"
             alt="IoT-tracked container ship — aerial view with digital overlay"
             className={styles.featureImg}
             loading="lazy"
@@ -333,7 +341,9 @@ export function HomePage() {
       {/* ─── CTA BAND ───────────────────────────────────────── */}
       <div className={styles.ctaBand}>
         <img
-          src="/images/shutterstock_2668969459.jpg"
+          src="/images/shutterstock_2668969459-2000.webp"
+          srcSet="/images/shutterstock_2668969459-1200.webp 1200w, /images/shutterstock_2668969459-2000.webp 2000w"
+          sizes="100vw"
           alt="Offshore oil rig at sunset"
           className={styles.ctaBandBg}
           aria-hidden="true"
