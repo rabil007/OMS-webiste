@@ -1,0 +1,15 @@
+.card {
+  padding: 18px;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 650;
+}
+
+.text {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+

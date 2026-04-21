@@ -1,0 +1,12 @@
+.card {
+  padding: 26px;
+  text-align: left;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+

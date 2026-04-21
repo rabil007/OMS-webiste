@@ -1,0 +1,330 @@
+/* ─── Hero ───────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  padding: 80px 0 64px;
+  overflow: hidden;
+  min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Ocean blue animated orb */
+.orb {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  top: -100px;
+  left: -180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(43, 125, 233, 0.18) 0%,
+    rgba(19, 43, 82, 0.12) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: orb 9s ease-in-out infinite;
+  z-index: 0;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 20px;
+}
+
+.headline {
+  animation: fadeUp 0.7s ease both;
+}
+
+/* Blue gradient accent on key phrase */
+.accent {
+  background: linear-gradient(100deg, #4A93F0, #60b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+/* ─── Hero media panel ───────────────────────────────────── */
+
+.heroMedia {
+  position: relative;
+}
+
+.mediaFrame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(43, 125, 233, 0.25);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(43, 125, 233, 0.12);
+  aspect-ratio: 4/3;
+  background: var(--ocean-mid);
+}
+
+.mediaBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(4, 12, 27, 0.80);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(43, 125, 233, 0.3);
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 3px rgba(43, 125, 233, 0.3);
+  animation: pulseGlow 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.mediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    transparent 35%,
+    rgba(4, 12, 27, 0.60)
+  );
+  z-index: 2;
+}
+
+/* ─── Stats strip ────────────────────────────────────────── */
+
+.statsRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 56px;
+  border: 1px solid rgba(43, 125, 233, 0.2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(43, 125, 233, 0.12);
+}
+
+.stat {
+  padding: 24px 28px;
+  background: rgba(7, 20, 40, 0.85);
+  transition: background 0.2s ease;
+}
+
+.stat:hover {
+  background: rgba(12, 31, 61, 0.95);
+}
+
+.statNum {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(90deg, #4A93F0, #60b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  margin-top: 6px;
+  color: var(--ink-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ─── Service cards ──────────────────────────────────────── */
+
+.serviceCard {
+  padding: 28px;
+  display: grid;
+  gap: 12px;
+  border-top: 3px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.serviceCard:hover {
+  border-top-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(43, 125, 233, 0.18);
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(43, 125, 233, 0.12);
+  border: 1px solid rgba(43, 125, 233, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(43, 125, 233, 0.18);
+  flex-shrink: 0;
+}
+
+.serviceTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.serviceDesc {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.seeAll {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── CTA band ───────────────────────────────────────────── */
+
+.ctaBand {
+  padding: 80px 0;
+  background:
+    radial-gradient(ellipse 900px 500px at 50% 50%, rgba(43, 125, 233, 0.12) 0%, transparent 65%),
+    rgba(7, 20, 40, 0.5);
+  border-top:    1px solid rgba(43, 125, 233, 0.12);
+  border-bottom: 1px solid rgba(43, 125, 233, 0.12);
+}
+
+.ctaInner {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+.ctaCopy { display: grid; gap: 12px; }
+
+.ctaHeadline { color: var(--text-strong); }
+
+.ctaText {
+  color: var(--ink-muted);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ─── Pillar / Why cards ─────────────────────────────────── */
+
+.pillarCard {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(7, 20, 40, 0.7);
+  transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.pillarCard:hover {
+  border-color: rgba(43, 125, 233, 0.3);
+  background: rgba(12, 31, 61, 0.8);
+}
+
+.pillarNum {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(43, 125, 233, 0.35);
+  flex-shrink: 0;
+  margin-top: -4px;
+  min-width: 56px;
+}
+
+.pillarContent { display: grid; gap: 8px; }
+
+.pillarTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.pillarDesc {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+
+@media (min-width: 860px) {
+  .hero { padding: 96px 0 80px; }
+  .heroInner { grid-template-columns: 1.05fr 0.95fr; }
+  .ctaInner { grid-template-columns: 1fr auto; }
+  .ctaActions { flex-wrap: nowrap; }
+}
+
+@media (max-width: 859px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+    background: none;
+    gap: 12px;
+    border: none;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(43, 125, 233, 0.18);
+    border-radius: var(--radius-sm);
+    background: rgba(7, 20, 40, 0.85);
+  }
+
+  .statNum { font-size: 28px; min-width: 64px; }
+
+  .pillarCard { flex-direction: column; gap: 8px; }
+  .pillarNum  { font-size: 32px; }
+}

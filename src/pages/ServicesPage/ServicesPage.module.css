@@ -1,0 +1,80 @@
+/* ─── Page hero ──────────────────────────────────────────── */
+
+.pageHero {
+  padding: 80px 0 72px;
+  background:
+    radial-gradient(ellipse 900px 500px at 10% 50%, rgba(43, 125, 233, 0.14) 0%, transparent 60%),
+    rgba(7, 20, 40, 0.4);
+  border-bottom: 1px solid rgba(43, 125, 233, 0.14);
+}
+
+.heroTitle    { margin-top: 16px; max-width: 620px; }
+.heroSubtitle { margin-top: 16px; max-width: 560px; }
+
+/* ─── Service cards ──────────────────────────────────────── */
+
+.card {
+  padding: 28px;
+  display: grid;
+  gap: 12px;
+  border-top: 3px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-top-color 0.22s ease;
+}
+
+.card:hover {
+  border-top-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(43, 125, 233, 0.15);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(43, 125, 233, 0.12);
+  border: 1px solid rgba(43, 125, 233, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(43, 125, 233, 0.18);
+  flex-shrink: 0;
+}
+
+.category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-light);
+  background: rgba(43, 125, 233, 0.12);
+  border: 1px solid rgba(43, 125, 233, 0.28);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  margin: 0;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+@media (max-width: 859px) {
+  .pageHero { padding: 56px 0 48px; }
+}
