@@ -29,7 +29,61 @@ function AnimCount({ target }) {
   return <span ref={ref}>{count}</span>
 }
 
+/* ── Typewriter cycling phrases ──────────────────────────── */
+const WORDS = [
+  'global marine',
+  'crew management',
+  'vessel operations',
+  'offshore support',
+  'maritime excellence',
+]
+
+function useTypewriter(words, typeSpeed = 72, deleteSpeed = 38, pauseTime = 2200) {
+  const [displayed, setDisplayed] = useState('')
+  const [wordIdx, setWordIdx]     = useState(0)
+  const [phase, setPhase]         = useState('typing') // typing | pausing | deleting
+
+  useEffect(() => {
+    const word = words[wordIdx]
+    if (phase === 'typing') {
+      if (displayed.length < word.length) {
+        const t = setTimeout(
+          () => setDisplayed(word.slice(0, displayed.length + 1)),
+          typeSpeed
+        )
+        return () => clearTimeout(t)
+      }
+      const t = setTimeout(() => setPhase('deleting'), pauseTime)
+      return () => clearTimeout(t)
+    }
+    if (phase === 'deleting') {
+      if (displayed.length > 0) {
+        const t = setTimeout(
+          () => setDisplayed(displayed.slice(0, -1)),
+          deleteSpeed
+        )
+        return () => clearTimeout(t)
+      }
+      setWordIdx((i) => (i + 1) % words.length)
+      setPhase('typing')
+    }
+  }, [displayed, phase, wordIdx, words, typeSpeed, deleteSpeed, pauseTime])
+
+  return displayed
+}
+
+function TypeWord() {
+  const word = useTypewriter(WORDS)
+  return (
+    <>
+      {word}
+      <span className={styles.typeCursor} aria-hidden="true">|</span>
+    </>
+  )
+}
+
 const services = [
+
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -175,7 +229,9 @@ export function HomePage() {
 
               <h1 className={styles.headline}>
                 Your trusted partner in{' '}
-                <span className={styles.accent}>global marine</span>{' '}
+                <span className={styles.accent}>
+                  <TypeWord />
+                </span>{' '}
                 solutions
               </h1>
 

@@ -110,6 +110,23 @@
   background-clip: text;
 }
 
+/* Blinking cursor for typewriter */
+.typeCursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #60d4ff;
+  -webkit-text-fill-color: #60d4ff;
+  font-weight: 300;
+  animation: cursorBlink 0.85s step-start infinite;
+  position: relative;
+  top: -1px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 .heroLead {
   font-size: 1.05rem;
   line-height: 1.7;
