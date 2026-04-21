@@ -1,0 +1,30 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  overflow: hidden; /* prevents horizontal flicker during animation */
+}
+
+/* ── Page transition ────────────────────────────────────── */
+/*
+  Every time location.key changes, React unmounts and remounts
+  this div, re-triggering the animation from scratch.
+*/
+.pageWrapper {
+  animation: pageIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
