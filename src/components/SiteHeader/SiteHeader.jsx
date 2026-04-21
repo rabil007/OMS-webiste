@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import styles from './SiteHeader.module.css'
 
 const nav = [
@@ -59,9 +59,9 @@ export function SiteHeader() {
             </nav>
 
             <div className={styles.actions}>
-              <a className="btn btnPrimary" href="/contact-us">
+              <Link className="btn btnPrimary" to="/contact-us" onClick={() => setOpen(false)}>
                 Get in touch
-              </a>
+              </Link>
               <button
                 className={styles.hamburger}
                 aria-label={open ? 'Close menu' : 'Open menu'}
@@ -101,13 +101,13 @@ export function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
-          <a
+          <Link
             className={`btn btnPrimary ${styles.drawerCta}`}
-            href="/contact-us"
+            to="/contact-us"
             onClick={() => setOpen(false)}
           >
             Get in touch
-          </a>
+          </Link>
         </nav>
       </div>
     </>

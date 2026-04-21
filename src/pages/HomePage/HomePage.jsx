@@ -106,9 +106,12 @@ export function HomePage() {
                   IoT‑enabled operations
                 </div>
                 <img
-                  src="/assets/hero-bg.png"
-                  alt="Marine vessel operations"
+                  src="/images/shutterstock_1405449578.jpg"
+                  alt="Container ship at sea — marine vessel operations"
                   className={styles.mediaImg}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
                 <div className={styles.mediaOverlay} />
               </div>
@@ -149,6 +152,15 @@ export function HomePage() {
 
       {/* ─── Mid-page CTA band ────────────────────────────── */}
       <div className={styles.ctaBand}>
+        <img
+          src="/images/shutterstock_2668969459.jpg"
+          alt="Offshore oil rig at sunset with support vessel"
+          className={styles.ctaBandBg}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className={styles.ctaBandOverlay} aria-hidden="true" />
         <div className="container">
           <div className={styles.ctaInner}>
             <div className={styles.ctaCopy}>
@@ -169,6 +181,36 @@ export function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* ─── Operations visual strip ──────────────────────── */}
+      <div className={styles.opsStrip}>
+        <div className={styles.opsImgWrap}>
+          <img
+            src="/images/shutterstock_2269656513.jpg"
+            alt="IoT-tracked container ship at sea — aerial view"
+            className={styles.opsImg}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className={styles.opsImgOverlay} />
+          <div className={styles.opsBadge}>
+            <span className={styles.dot} />
+            Real-time IoT tracking
+          </div>
+        </div>
+        <div className={styles.opsCopy}>
+          <div className="kicker">Technology-Driven Operations</div>
+          <h2 className="h2">Visibility at every point in the voyage</h2>
+          <p className="lead">
+            Our IoT-embedded management platform delivers live vessel telemetry,
+            route optimization, and instant operational alerts — keeping your
+            fleet mission-ready across every ocean.
+          </p>
+          <Link className="btn btnPrimary" to="/services">
+            Explore our technology →
+          </Link>
         </div>
       </div>
 

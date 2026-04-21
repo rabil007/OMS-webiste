@@ -217,15 +217,36 @@
   justify-content: center;
 }
 
-/* ─── CTA band ───────────────────────────────────────────── */
+/* ─── CTA band ─────────────────────────────────────────── */
 
 .ctaBand {
-  padding: 80px 0;
+  position: relative;
+  padding: 96px 0;
+  overflow: hidden;
+  border-top:    1px solid rgba(43, 125, 233, 0.15);
+  border-bottom: 1px solid rgba(43, 125, 233, 0.15);
+}
+
+.ctaBand .container { position: relative; z-index: 2; }
+
+.ctaBandBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+  filter: brightness(0.35) saturate(0.8);
+}
+
+.ctaBandOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background:
-    radial-gradient(ellipse 900px 500px at 50% 50%, rgba(43, 125, 233, 0.12) 0%, transparent 65%),
-    rgba(7, 20, 40, 0.5);
-  border-top:    1px solid rgba(43, 125, 233, 0.12);
-  border-bottom: 1px solid rgba(43, 125, 233, 0.12);
+    linear-gradient(90deg, rgba(4, 12, 27, 0.92) 0%, rgba(4, 12, 27, 0.55) 100%),
+    radial-gradient(ellipse 900px 500px at 30% 50%, rgba(43, 125, 233, 0.18) 0%, transparent 65%);
 }
 
 .ctaInner {
@@ -248,6 +269,85 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+/* ─── Operations visual strip ────────────────────────── */
+
+.opsStrip {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 480px;
+}
+
+.opsImgWrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.opsImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 8s ease;
+}
+
+.opsStrip:hover .opsImg {
+  transform: scale(1.04);
+}
+
+.opsImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 50%,
+    rgba(4, 12, 27, 0.85) 100%
+  );
+}
+
+.opsBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(4, 12, 27, 0.80);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(43, 125, 233, 0.3);
+  color: var(--text-strong);
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.opsCopy {
+  padding: 56px 40px;
+  display: grid;
+  gap: 20px;
+  align-content: center;
+  background: rgba(7, 20, 40, 0.9);
+}
+
+@media (min-width: 860px) {
+  .opsStrip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .opsImgOverlay {
+    background: linear-gradient(
+      to right,
+      transparent 60%,
+      rgba(4, 12, 27, 0.9) 100%
+    );
+  }
+
+  .opsImgWrap { min-height: unset; }
 }
 
 /* ─── Pillar / Why cards ─────────────────────────────────── */

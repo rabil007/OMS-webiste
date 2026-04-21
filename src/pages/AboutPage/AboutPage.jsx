@@ -41,7 +41,14 @@ export function AboutPage() {
     <>
       {/* Page hero / banner */}
       <div className={styles.pageBanner}>
-        <div className="container">
+        <img
+          src="/images/shutterstock_1717081216.jpg"
+          alt="Large container ship at sea"
+          className={styles.bannerBg}
+          aria-hidden="true"
+        />
+        <div className={styles.bannerBgOverlay} aria-hidden="true" />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div className={styles.bannerGrid}>
             <div className={styles.bannerCopy}>
               <div className="kicker">About Us</div>

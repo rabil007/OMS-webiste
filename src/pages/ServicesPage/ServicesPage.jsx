@@ -57,6 +57,13 @@ export function ServicesPage() {
     <>
       {/* Page hero */}
       <div className={styles.pageHero}>
+        <img
+          src="/images/shutterstock_2528263849.jpg"
+          alt="Aerial view of marine vessel operations at sea"
+          className={styles.heroBg}
+          aria-hidden="true"
+        />
+        <div className={styles.heroBgOverlay} aria-hidden="true" />
         <div className="container">
           <div className="kicker">Our Services</div>
           <h1 className={`h1 ${styles.heroTitle}`}>
