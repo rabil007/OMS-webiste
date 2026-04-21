@@ -12,7 +12,7 @@
 
 .brand { display: grid; gap: 14px; }
 
-.logo { height: 38px; width: auto; display: block; }
+.logo { height: 60px; width: auto; display: block; }
 
 .tagline {
   margin: 0;
