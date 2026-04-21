@@ -338,10 +338,21 @@
 }
 
 .serviceItemIcon {
-  font-size: 18px;
   flex-shrink: 0;
   width: 32px;
-  text-align: center;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.10);
+  border: 1px solid rgba(43,125,233,0.20);
+  border-radius: 8px;
+  color: #4A93F0;
+}
+
+.serviceItemIcon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .serviceItemLabel {
@@ -576,8 +587,21 @@
 }
 
 .certEmoji {
-  font-size: 32px;
-  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.12);
+  border: 1px solid rgba(43,125,233,0.25);
+  border-radius: 10px;
+  color: #4A93F0;
+  margin: 0 auto;
+}
+
+.certEmoji svg {
+  width: 20px;
+  height: 20px;
 }
 
 .certCode {
@@ -627,8 +651,27 @@
 }
 
 .pillarEmoji {
-  font-size: 32px;
-  line-height: 1;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.10);
+  border: 1px solid rgba(43,125,233,0.22);
+  border-radius: 13px;
+  color: #4A93F0;
+  margin-bottom: 4px;
+  transition: background 0.2s ease;
+}
+
+.pillarEmoji svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pillarCard:hover .pillarEmoji {
+  background: rgba(43,125,233,0.18);
+  border-color: rgba(43,125,233,0.38);
 }
 
 .pillarTitle {

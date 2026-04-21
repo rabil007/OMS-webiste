@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 import styles from './AboutPage.module.css'
 
 const bullets = [
-  { icon: '🚢', label: 'Vessel Management' },
-  { icon: '👥', label: 'Crew Management' },
-  { icon: '🚗', label: 'Transport Management' },
-  { icon: '✈️', label: 'Travel & Accommodation' },
-  { icon: '📋', label: 'Flag State Documentation' },
-  { icon: '🎓', label: 'Training Consultancy' },
-  { icon: '⚓', label: 'Vessel Rentals' },
-  { icon: '🔧', label: 'Vessel Repair Services' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17h18M3 17l2-8h14l2 8M3 17v2a1 1 0 001 1h16a1 1 0 001-1v-2M8 9V5a1 1 0 011-1h6a1 1 0 011 1v4"/></svg>), label: 'Vessel Management' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>), label: 'Crew Management' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>), label: 'Transport Management' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>), label: 'Travel & Accommodation' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>), label: 'Flag State Documentation' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>), label: 'Training Consultancy' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>), label: 'Vessel Rentals' },
+  { icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>), label: 'Vessel Repair Services' },
 ]
 
 const compliance = [
@@ -70,27 +70,43 @@ const compliance = [
 ]
 
 const certifications = [
-  { code: 'ISO 9001', label: 'Quality Management', icon: '🏅' },
-  { code: 'ISO 14001', label: 'Environmental Management', icon: '🌿' },
-  { code: 'ISO 22301', label: 'Business Continuity', icon: '🔒' },
-  { code: 'ISO 45001', label: 'Occupational Health & Safety', icon: '⛑️' },
+  {
+    code: 'ISO 9001',
+    label: 'Quality Management',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>),
+  },
+  {
+    code: 'ISO 14001',
+    label: 'Environmental Management',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c0-5.523-4.477-10-10-10 0 5.523 4.477 10 10 10z"/><path d="M12 22c0-5.523 4.477-10 10-10-5.523 0-10 4.477-10 10z"/><path d="M12 2v20"/></svg>),
+  },
+  {
+    code: 'ISO 22301',
+    label: 'Business Continuity',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>),
+  },
+  {
+    code: 'ISO 45001',
+    label: 'Occupational Health & Safety',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>),
+  },
 ]
 
 const pillars = [
   {
     title: 'Reliable Operations',
     desc: 'Process-driven delivery with clear accountability and real-time reporting at every stage.',
-    icon: '⚙️',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/><path d="M22 12A10 10 0 002 12"/></svg>),
   },
   {
     title: 'Technology-First',
     desc: 'IoT and software workflows engineered for complete operational visibility and control.',
-    icon: '📡',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 010 8.49m-8.48-.01a6 6 0 010-8.49m11.31-2.82a10 10 0 010 14.14m-14.14 0a10 10 0 010-14.14"/></svg>),
   },
   {
     title: 'Partner Mindset',
     desc: 'We adapt to your operational constraints and align with your long-term business goals.',
-    icon: '🤝',
+    icon: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>),
   },
 ]
 

@@ -49,9 +49,34 @@ const contactDetails = [
 ]
 
 const reasons = [
-  { icon: '⚡', label: 'Fast Response', desc: 'We reply within 1 business day' },
-  { icon: '🌐', label: 'Global Reach', desc: 'Supporting operations worldwide' },
-  { icon: '🔒', label: 'Confidential', desc: 'All inquiries are handled with discretion' },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+    ),
+    label: 'Fast Response',
+    desc: 'We reply within 1 business day',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+      </svg>
+    ),
+    label: 'Global Reach',
+    desc: 'Supporting operations worldwide',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+      </svg>
+    ),
+    label: 'Confidential',
+    desc: 'All inquiries are handled with discretion',
+  },
 ]
 
 const subjectOptions = [
@@ -120,7 +145,7 @@ export function ContactPage() {
           <div className={styles.heroReasons}>
             {reasons.map((r) => (
               <div key={r.label} className={styles.heroReason}>
-                <span className={styles.heroReasonIcon}>{r.icon}</span>
+                <div className={styles.heroReasonIcon}>{r.icon}</div>
                 <div>
                   <div className={styles.heroReasonLabel}>{r.label}</div>
                   <div className={styles.heroReasonDesc}>{r.desc}</div>

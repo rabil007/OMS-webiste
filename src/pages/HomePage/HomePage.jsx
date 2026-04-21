@@ -70,25 +70,41 @@ const pillars = [
     num: '01',
     title: 'Proven Expertise',
     desc: 'Over 40 years of combined experience across marine and oil & gas operations.',
-    icon: '🏆',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+    ),
   },
   {
     num: '02',
     title: 'Comprehensive Services',
     desc: 'From ship management and crew services to repair support and transport.',
-    icon: '🔗',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/><rect x="16" y="15" width="6" height="6" rx="1"/><path d="M8 6h8M8 18h8M5 9v6M19 9v6"/>
+      </svg>
+    ),
   },
   {
     num: '03',
     title: 'Cutting-Edge Technology',
     desc: 'IoT-embedded management and robust software to optimize vessel efficiency.',
-    icon: '📡',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 010 8.49m-8.48-.01a6 6 0 010-8.49m11.31-2.82a10 10 0 010 14.14m-14.14 0a10 10 0 010-14.14"/>
+      </svg>
+    ),
   },
   {
     num: '04',
     title: 'Client-Centric Approach',
     desc: 'Long-term partnerships built through tailored solutions and responsive support.',
-    icon: '🤝',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+      </svg>
+    ),
   },
 ]
 

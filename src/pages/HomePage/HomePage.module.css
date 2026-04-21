@@ -703,8 +703,26 @@
 }
 
 .pillarEmoji {
-  font-size: 28px;
-  line-height: 1;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.10);
+  border: 1px solid rgba(43,125,233,0.22);
+  border-radius: 12px;
+  color: #4A93F0;
+  transition: background 0.2s ease;
+}
+
+.pillarEmoji svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pillarCard:hover .pillarEmoji {
+  background: rgba(43,125,233,0.18);
+  border-color: rgba(43,125,233,0.38);
 }
 
 .pillarNum {

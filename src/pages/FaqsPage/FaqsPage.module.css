@@ -407,8 +407,20 @@
 }
 
 .emptyIcon {
-  font-size: 36px;
-  line-height: 1;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.08);
+  border: 1px solid rgba(43,125,233,0.18);
+  border-radius: 14px;
+  color: rgba(74,147,240,0.55);
+}
+
+.emptyIcon svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* ═══════════════════════════════════════════════════════════

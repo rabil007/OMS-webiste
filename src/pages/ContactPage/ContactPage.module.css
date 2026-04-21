@@ -186,9 +186,21 @@
 }
 
 .heroReasonIcon {
-  font-size: 20px;
-  line-height: 1;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.14);
+  border: 1px solid rgba(43,125,233,0.28);
+  border-radius: 9px;
+  color: #4A93F0;
   flex-shrink: 0;
+}
+
+.heroReasonIcon svg {
+  width: 17px;
+  height: 17px;
 }
 
 .heroReasonLabel {
