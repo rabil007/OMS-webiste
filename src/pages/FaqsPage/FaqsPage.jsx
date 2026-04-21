@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from './FaqsPage.module.css'
 import { Section } from '../../components/ui/Section/Section.jsx'
+import { PageHero } from '../../components/ui/PageHero/PageHero.jsx'
 
 const faqs = [
   {
@@ -35,39 +36,42 @@ export function FaqsPage() {
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i)
 
   return (
-    <Section
-      eyebrow="FAQ's"
-      title="Answers to common questions"
-      subtitle="If you need something specific, contact us and we'll route you to the right team."
-    >
-      <div className={styles.list}>
-        {faqs.map((f, i) => {
-          const isOpen = openIndex === i
-          return (
-            <div
-              key={f.q}
-              className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}
-            >
-              <button
-                className={styles.question}
-                onClick={() => toggle(i)}
-                aria-expanded={isOpen}
-              >
-                <span>{f.q}</span>
-                <span className={`${styles.icon} ${isOpen ? styles.iconOpen : ''}`} aria-hidden="true">
-                  +
-                </span>
-              </button>
+    <>
+      <PageHero
+        eyebrow="FAQ's"
+        title="Answers to common questions"
+        subtitle="If you need something specific, contact us and we'll route you to the right team."
+      />
+      <Section>
+        <div className={styles.list}>
+          {faqs.map((f, i) => {
+            const isOpen = openIndex === i
+            return (
               <div
-                className={styles.answer}
-                style={{ maxHeight: isOpen ? '300px' : '0' }}
+                key={f.q}
+                className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}
               >
-                <p className={styles.answerText}>{f.a}</p>
+                <button
+                  className={styles.question}
+                  onClick={() => toggle(i)}
+                  aria-expanded={isOpen}
+                >
+                  <span>{f.q}</span>
+                  <span className={`${styles.icon} ${isOpen ? styles.iconOpen : ''}`} aria-hidden="true">
+                    +
+                  </span>
+                </button>
+                <div
+                  className={styles.answer}
+                  style={{ maxHeight: isOpen ? '300px' : '0' }}
+                >
+                  <p className={styles.answerText}>{f.a}</p>
+                </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
-    </Section>
+            )
+          })}
+        </div>
+      </Section>
+    </>
   )
 }

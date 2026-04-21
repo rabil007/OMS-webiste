@@ -1,5 +1,6 @@
 import { Section } from '../../components/ui/Section/Section.jsx'
 import styles from './SoftwaresPage.module.css'
+import { PageHero } from '../../components/ui/PageHero/PageHero.jsx'
 
 const items = [
   {
@@ -18,20 +19,23 @@ const items = [
 
 export function SoftwaresPage() {
   return (
-    <Section
-      eyebrow="Softwares"
-      title="Technology that supports real operations"
-      subtitle="A clean, static showcase for now — later we can expand this into product pages and demos."
-    >
-      <div className="grid gridCols3">
-        {items.map((i) => (
-          <div key={i.title} className={`card ${styles.card}`}>
-            <div className={styles.title}>{i.title}</div>
-            <div className={styles.desc}>{i.desc}</div>
-          </div>
-        ))}
-      </div>
-    </Section>
+    <>
+      <PageHero
+        eyebrow="Softwares"
+        title="Technology that supports real operations"
+        subtitle="Operational dashboards and integrations designed for visibility, compliance, and control."
+      />
+      <Section>
+        <div className="grid gridCols3">
+          {items.map((i) => (
+            <div key={i.title} className={`card ${styles.card}`}>
+              <div className={styles.title}>{i.title}</div>
+              <div className={styles.desc}>{i.desc}</div>
+            </div>
+          ))}
+        </div>
+      </Section>
+    </>
   )
 }
 
