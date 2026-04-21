@@ -8,7 +8,8 @@ const serviceSections = [
     title: 'Qualified crews, ready to sail',
     subtitle:
       'Recruitment, training, certifications, payroll, and welfare programs to keep operations fully staffed and compliant at every port.',
-    image: '/images/shutterstock_2155033037.jpg',
+    image: '/images/shutterstock_2269656513-2000.webp',
+    imageSrcSet: '/images/shutterstock_2269656513-1200.webp 1200w, /images/shutterstock_2269656513-2000.webp 2000w',
     imageAlt: 'Marine crew operations',
     imagePosition: 'right',
     items: [
@@ -60,7 +61,8 @@ const serviceSections = [
     title: 'Safe, efficient, compliant vessel operations',
     subtitle:
       'End-to-end management covering technical, operational, and commercial aspects to maximise uptime and preserve long-term asset value.',
-    image: '/images/shutterstock_1843014460.jpg',
+    image: '/images/shutterstock_1843014460-2000.webp',
+    imageSrcSet: '/images/shutterstock_1843014460-1200.webp 1200w, /images/shutterstock_1843014460-2000.webp 2000w',
     imageAlt: 'Container ship in port — vessel management',
     imagePosition: 'left',
     items: [
@@ -112,7 +114,8 @@ const serviceSections = [
     title: 'Operational support for offshore projects',
     subtitle:
       'Skilled manpower, technical services, and marine logistics to support vessels, rigs, and offshore missions in demanding environments.',
-    image: '/images/shutterstock_2668969459.jpg',
+    image: '/images/shutterstock_2668969459-2000.webp',
+    imageSrcSet: '/images/shutterstock_2668969459-1200.webp 1200w, /images/shutterstock_2668969459-2000.webp 2000w',
     imageAlt: 'Offshore oil rig at sunset with support vessel',
     imagePosition: 'right',
     items: [
@@ -173,7 +176,9 @@ export function ServicesPage() {
       {/* ── HERO ─────────────────────────────────────────── */}
       <div className={styles.pageHero}>
         <img
-          src="/images/shutterstock_2528263849.jpg"
+          src="/images/shutterstock_2528263849-2000.webp"
+          srcSet="/images/shutterstock_2528263849-1200.webp 1200w, /images/shutterstock_2528263849-2000.webp 2000w"
+          sizes="100vw"
           alt="Aerial view of marine vessel operations at sea"
           className={styles.heroBg}
           fetchPriority="high"
@@ -242,6 +247,8 @@ export function ServicesPage() {
             <div className={styles.secImgWrap}>
               <img
                 src={sec.image}
+                srcSet={sec.imageSrcSet}
+                sizes="(max-width: 859px) 100vw, 50vw"
                 alt={sec.imageAlt}
                 className={styles.secImg}
                 loading="lazy"
@@ -278,7 +285,9 @@ export function ServicesPage() {
       {/* ── CTA BAND ─────────────────────────────────────── */}
       <div className={styles.ctaBand}>
         <img
-          src="/images/shutterstock_1405449578.jpg"
+          src="/images/shutterstock_1405449578-2000.webp"
+          srcSet="/images/shutterstock_1405449578-1200.webp 1200w, /images/shutterstock_1405449578-2000.webp 2000w"
+          sizes="100vw"
           alt="Container ship at sea"
           className={styles.ctaBg}
           aria-hidden="true"

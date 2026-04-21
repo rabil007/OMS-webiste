@@ -108,7 +108,9 @@ export function AboutPage() {
       {/* ── HERO BANNER ─────────────────────────────────── */}
       <div className={styles.pageBanner}>
         <img
-          src="/images/shutterstock_1717081216.jpg"
+          src="/images/shutterstock_1717081216-2000.webp"
+          srcSet="/images/shutterstock_1717081216-1200.webp 1200w, /images/shutterstock_1717081216-2000.webp 2000w"
+          sizes="100vw"
           alt="Large container ship at sea"
           className={styles.bannerBg}
           fetchPriority="high"
@@ -206,7 +208,9 @@ export function AboutPage() {
       <div className={styles.timelineSection}>
         <div className={styles.timelineImgSide}>
           <img
-            src="/images/shutterstock_2528263849.jpg"
+            src="/images/shutterstock_2528263849-2000.webp"
+            srcSet="/images/shutterstock_2528263849-1200.webp 1200w, /images/shutterstock_2528263849-2000.webp 2000w"
+            sizes="(max-width: 859px) 100vw, 50vw"
             alt="Marine vessel at sea — offshore operations"
             className={styles.timelineImg}
             loading="lazy"
@@ -305,8 +309,10 @@ export function AboutPage() {
       {/* ── FINAL CTA ───────────────────────────────────── */}
       <div className={styles.ctaBand}>
         <img
-          src="/images/shutterstock_241591879.jpg"
-          alt="Marine anchor — maritime heritage"
+          src="/images/shutterstock_2668969459-2000.webp"
+          srcSet="/images/shutterstock_2668969459-1200.webp 1200w, /images/shutterstock_2668969459-2000.webp 2000w"
+          sizes="100vw"
+          alt="Offshore oil rig at sunset"
           className={styles.ctaBg}
           aria-hidden="true"
           loading="lazy"
