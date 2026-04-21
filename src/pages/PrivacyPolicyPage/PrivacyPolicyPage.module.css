@@ -1,5 +1,5 @@
 .card {
-  padding: 18px;
+  padding: 26px;
 }
 
 .text {
@@ -7,7 +7,44 @@
   line-height: 1.8;
 }
 
-.text p {
-  margin: 0;
+.text p { margin: 0; }
+
+.text p + p,
+.text p + h2,
+.text ul + h2,
+.text h2 + p,
+.text h2 + ul,
+.text ul + p {
+  margin-top: 14px;
 }
+
+.h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 13px;
+}
+
+.link {
+  color: rgba(96, 180, 255, 0.92);
+  text-decoration: none;
+}
+
+.link:hover { text-decoration: underline; }
 
