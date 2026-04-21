@@ -1,0 +1,277 @@
+/* ═══════════════════════════════════════════════════════════
+   CAREER PAGE — COMING SOON
+═══════════════════════════════════════════════════════════ */
+
+.page {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 24px 80px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+  filter: brightness(0.18) saturate(0.75);
+  animation: slowZoom 24s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.11); }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(160deg, rgba(4,12,27,0.98) 0%, rgba(4,12,27,0.55) 55%, rgba(4,12,27,0.92) 100%),
+    radial-gradient(ellipse 900px 600px at 50% 55%, rgba(43,125,233,0.20) 0%, transparent 65%);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(circle, rgba(43,125,233,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── Content ────────────────────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  display: grid;
+  gap: 0;
+  justify-items: center;
+}
+
+/* Eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #60b4ff;
+  margin-bottom: 20px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4A93F0;
+  box-shadow: 0 0 0 3px rgba(74,147,240,0.30);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(43,125,233,0.12);
+  border: 1px solid rgba(43,125,233,0.30);
+  color: #4A93F0;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s 0.05s ease both;
+}
+
+/* Title */
+.title {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0 0 24px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.accent {
+  background: linear-gradient(100deg, #4A93F0 0%, #60d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+  margin: 0 0 32px;
+  max-width: 540px;
+  animation: fadeUp 0.7s 0.15s ease both;
+}
+
+/* Divider */
+.divider {
+  width: 48px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2B7DE9, #60d4ff);
+  margin-bottom: 24px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+/* Interim text */
+.interimText {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.40);
+  margin: 0 0 36px;
+  max-width: 460px;
+  animation: fadeUp 0.7s 0.22s ease both;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 56px;
+  animation: fadeUp 0.7s 0.28s ease both;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2B7DE9 0%, #1a5bbf 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 24px rgba(43,125,233,0.40);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(43,125,233,0.55);
+  filter: brightness(1.08);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnGhost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* Perks */
+.perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  animation: fadeUp 0.7s 0.35s ease both;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: rgba(8,22,46,0.75);
+  border: 1px solid rgba(43,125,233,0.14);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.perk:hover {
+  border-color: rgba(43,125,233,0.28);
+  background: rgba(12,32,68,0.85);
+}
+
+.perkIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43,125,233,0.12);
+  border: 1px solid rgba(43,125,233,0.22);
+  border-radius: 8px;
+  color: #4A93F0;
+  flex-shrink: 0;
+}
+
+.perkIcon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.perkLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.70);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(43,125,233,0.30); }
+  50%       { box-shadow: 0 0 0 6px rgba(43,125,233,0.10); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 560px) {
+  .title    { font-size: 2.2rem; }
+  .actions  { flex-direction: column; width: 100%; }
+  .btnPrimary,
+  .btnGhost { justify-content: center; }
+  .perks    { gap: 8px; }
+}

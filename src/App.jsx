@@ -15,6 +15,7 @@ const LiveVesselTrackingPage = lazy(() =>
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage.jsx').then((m) => ({ default: m.PrivacyPolicyPage })))
 const TermsPage = lazy(() => import('./pages/TermsPage/TermsPage.jsx').then((m) => ({ default: m.TermsPage })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage.jsx').then((m) => ({ default: m.NotFoundPage })))
+const CareerPage = lazy(() => import('./pages/CareerPage/CareerPage.jsx').then((m) => ({ default: m.CareerPage })))
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-conditions" element={<TermsPage />} />
             <Route path="/404" element={<NotFoundPage />} />
+            <Route path="/careers" element={<CareerPage />} />
             <Route path="/404-2" element={<Navigate to="/404" replace />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
