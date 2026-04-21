@@ -1,13 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './ScrollToTop.module.css'
 
 export function ScrollToTop() {
   const [visible, setVisible] = useState(false)
+  const rafId = useRef(0)
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400)
+    const calc = () => {
+      const next = window.scrollY > 400
+      setVisible((prev) => (prev === next ? prev : next))
+    }
+    const onScroll = () => {
+      if (rafId.current) return
+      rafId.current = window.requestAnimationFrame(() => {
+        rafId.current = 0
+        calc()
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    calc()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafId.current) window.cancelAnimationFrame(rafId.current)
+    }
   }, [])
 
   const scrollUp = () =>

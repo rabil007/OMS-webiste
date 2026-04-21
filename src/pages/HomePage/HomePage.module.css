@@ -101,13 +101,18 @@
   color: #fff;
   margin: 0;
   animation: fadeUp 0.7s 0.1s ease both;
+  min-height: 2.2em;
 }
 
 .accent {
+  display: inline-flex;
+  align-items: baseline;
   background: linear-gradient(100deg, #4A93F0 0%, #60d4ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  white-space: nowrap;
+  min-width: 18ch;
 }
 
 /* Blinking cursor for typewriter */
@@ -1311,4 +1316,5 @@
 @media (max-width: 560px) {
   .statsRow            { grid-template-columns: 1fr 1fr; }
   .headline            { font-size: 2rem; }
+  .accent              { min-width: 0; }
 }
