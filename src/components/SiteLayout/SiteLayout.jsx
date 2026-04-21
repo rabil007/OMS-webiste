@@ -5,6 +5,7 @@ import { SiteFooter } from '../SiteFooter/SiteFooter.jsx'
 import { OmsChat } from '../OmsChat/OmsChat.jsx'
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop.jsx'
 import { RouteScrollReset } from '../RouteScrollReset/RouteScrollReset.jsx'
+import { ScrollProgress } from '../ScrollProgress/ScrollProgress.jsx'
 import styles from './SiteLayout.module.css'
 
 export function SiteLayout() {
@@ -12,6 +13,7 @@ export function SiteLayout() {
 
   return (
     <div className={styles.shell}>
+      <ScrollProgress />
       {/* Resets scroll position on every navigation */}
       <RouteScrollReset />
 
