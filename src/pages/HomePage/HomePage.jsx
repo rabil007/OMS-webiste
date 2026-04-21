@@ -93,19 +93,13 @@ const pillars = [
 ]
 
 const stats = [
-  { value: '15+', label: 'Global Partners' },
+  { value: '2020', label: 'Established' },
   { value: '40+', label: 'Years Experience' },
-  { value: '24/7', label: 'Operational Support' },
+  { value: '24/7', label: 'Technical Support' },
   { value: '100%', label: 'IMO Compliant' },
 ]
 
-const trustedBy = [
-  'Oil & Gas Operators',
-  'Offshore Contractors',
-  'Port Authorities',
-  'Vessel Owners',
-  'Shipping Companies',
-]
+const certified = ['ISO 9001', 'ISO 14001', 'ISO 22301', 'ISO 45001']
 
 export function HomePage() {
   return (
@@ -141,9 +135,9 @@ export function HomePage() {
               </h1>
 
               <p className={styles.heroLead}>
-                A comprehensive provider of maritime solutions for the Oil&nbsp;&amp;&nbsp;Gas
-                and Marine sectors — built around operational excellence and
-                technology‑driven delivery.
+                Established in Abu Dhabi, OMS delivers integrated crew management, ship
+                management, and offshore support solutions for the Oil&nbsp;&amp;&nbsp;Gas and
+                Marine sectors — built around safety, compliance, and operational reliability.
               </p>
 
               <div className={styles.ctas}>
@@ -160,9 +154,9 @@ export function HomePage() {
 
               {/* Trust indicators */}
               <div className={styles.trustBar}>
-                <span className={styles.trustLabel}>Trusted by</span>
-                {trustedBy.map((t) => (
-                  <span key={t} className={styles.trustChip}>{t}</span>
+                <span className={styles.trustLabel}>Certified</span>
+                {certified.map((c) => (
+                  <span key={c} className={styles.trustChip}>{c}</span>
                 ))}
               </div>
             </div>

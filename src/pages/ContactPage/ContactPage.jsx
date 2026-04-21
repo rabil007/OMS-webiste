@@ -18,7 +18,7 @@ const contactDetails = [
   {
     icon: '📍',
     label: 'Address',
-    value: 'Office 402, Centro Capital Centre, Abu Dhabi, U.A.E',
+    value: 'Office 402, 4th Floor, Centro Capital Centre, Al Zumurrud St, ADNEC Area, Abu Dhabi, P.O. Box 108181, UAE',
     href: null,
   },
   {

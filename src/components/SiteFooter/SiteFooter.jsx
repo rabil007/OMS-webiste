@@ -88,7 +88,9 @@ export function SiteFooter() {
             <div className={styles.contactList}>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>📍</span>
-                <span>Office 402, Centro Capital Centre, Abu Dhabi, U.A.E</span>
+                <span>
+                  Office 402, 4th Floor, Centro Capital Centre, Al Zumurrud St, ADNEC Area, Abu Dhabi, P.O. Box 108181, UAE
+                </span>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>📧</span>
